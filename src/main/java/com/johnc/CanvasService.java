@@ -5,7 +5,7 @@ public class CanvasService {
     private Canvas canvas;
 
     public void createCanvas(int width, int height) {
-        canvas = new Canvas(width, height);
+        canvas = new Canvas(width + 2, height);
     }
 
     public void drawShape(Shape shape) {
@@ -24,7 +24,7 @@ public class CanvasService {
         StringBuilder spaces = new StringBuilder();
 
         // Construct Top of the canvas
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < canvas.getWidth(); i++) {
             canvasTop.append("-");
             canvasBottom.append("-");
             spaces.append(" ");

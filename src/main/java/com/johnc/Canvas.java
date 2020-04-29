@@ -26,7 +26,6 @@ public class Canvas {
             for (int i = firstCoordinate; i <= secondCoordinate; i++) {
                 frameArray[i] = "X";
             }
-            buildCanvas(frameArray, sb);
         } else {
             if (y1 < y2) {
                 for (int i = y1; i <= y2; i++) {
@@ -39,8 +38,9 @@ public class Canvas {
                     frameArray[coordinate] = "X";
                 }
             }
-            buildCanvas(frameArray, sb);
         }
+
+        buildCanvas(frameArray, sb);
     }
 
     public void drawRectangle(Shape shape) {
@@ -50,14 +50,6 @@ public class Canvas {
         int x2 = shape.getX2();
         int y2 = shape.getY2();
         StringBuilder sb = new StringBuilder();
-
-        // Offset index positions if rectangle constructs in second half of canvas
-        if (x2 > (width - 2) / 2) {
-            x2 = x2 - 2;
-            x1 = x1 - 2;
-        } else if (x1 > (width - 2) / 2) {
-            x1 = x1 - 2;
-        }
 
         int rectangleTopX = width * y1 + x1;
         int rectangleTopY = width * y1 + x2;
@@ -75,7 +67,7 @@ public class Canvas {
 
     private void buildCanvas(String[] frameArray, StringBuilder sb) {
         for (int i = 0; i < frameArray.length; i++) {
-            if (i % 20 == 0 && i != 0) {
+            if (i % width == 0 && i != 0) {
                 sb.append("\n");
             }
             sb.append(frameArray[i]);
@@ -127,6 +119,10 @@ public class Canvas {
 
     public String getFrame() {
         return frame;
+    }
+
+    public int getWidth() {
+        return width;
     }
 
     public void setFrame(StringBuilder canvas) {
