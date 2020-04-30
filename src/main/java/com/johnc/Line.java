@@ -14,19 +14,31 @@ public class Line implements Shape {
         this.y2 = y2;
     }
 
-    public int getX1() {
-        return x1;
+    public void draw(Canvas canvas, String frame, int width) {
+        String[] frameArray = frame.replace("\n", "").split("");
+        StringBuilder sb = new StringBuilder();
+
+        if (y1 == y2) {
+            int firstCoordinate = width * y1 + x1;
+            int secondCoordinate = width * y2 + x2;
+            for (int i = firstCoordinate; i <= secondCoordinate; i++) {
+                frameArray[i] = "X";
+            }
+        } else {
+            if (y1 < y2) {
+                drawLine(width, frameArray, y1, y2);
+            } else {
+                drawLine(width, frameArray, y2, y1);
+            }
+        }
+
+        canvas.buildCanvas(frameArray, sb);
     }
 
-    public int getY1() {
-        return y1;
-    }
-
-    public int getX2() {
-        return x2;
-    }
-
-    public int getY2() {
-        return y2;
+    private void drawLine(int width, String[] frameArray, int y1, int y2) {
+        for (int i = y1; i <= y2; i++) {
+            int coordinate = width * i + x1;
+            frameArray[coordinate] = "X";
+        }
     }
 }

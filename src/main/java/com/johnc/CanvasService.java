@@ -9,11 +9,7 @@ public class CanvasService {
     }
 
     public void drawShape(Shape shape) {
-        if (shape instanceof Line) {
-            canvas.drawLine(shape);
-        } else if (shape instanceof Rectangle) {
-            canvas.drawRectangle(shape);
-        }
+       shape.draw(canvas, canvas.getFrame(), canvas.getWidth());
     }
 
     public String getCanvas() {
