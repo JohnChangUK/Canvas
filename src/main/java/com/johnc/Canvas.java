@@ -12,12 +12,11 @@ public class Canvas {
     }
 
     public void drawLine(Shape shape) {
-        String trimmedFrame = frame.replace("\n", "");
+        String[] frameArray = frame.replace("\n", "").split("");
         int x1 = shape.getX1();
         int y1 = shape.getY1();
         int x2 = shape.getX2();
         int y2 = shape.getY2();
-        String[] frameArray = trimmedFrame.split("");
         StringBuilder sb = new StringBuilder();
 
         if (y1 == y2) {
