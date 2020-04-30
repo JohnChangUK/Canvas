@@ -31,5 +31,5 @@ from `(15, 2)` and ending at coordinate `(20, 5)`
 </p>
 
 <p>
-    <img src="images/program output1.jpg" width="550" height="1000" />
+    <img src="images/program output2.jpg" width="550" height="1000" />
 </p>
