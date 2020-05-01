@@ -14,6 +14,7 @@ public class Rectangle implements Shape {
         this.y2 = y2;
     }
 
+    @Override
     public void draw(Canvas canvas, String frame, int width) {
         String[] frameArray = frame.replace("\n", "").split("");
         StringBuilder sb = new StringBuilder();
